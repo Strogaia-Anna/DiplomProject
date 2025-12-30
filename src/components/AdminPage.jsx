@@ -14,7 +14,7 @@ import "./AdminPage.css"
 
 export const AdminPage = () => {
     const body = document.getElementsByTagName('body')[0];
-    body.style.backgroundImage = 'url("/admin.jpg")';
+    body.style.backgroundImage = 'url("admin.jpg")';
     let [sessions, setSessions] = useState({});
     let [index, setIndex] = useState(0);
     let [indexForHalls, setIndexForHalls] = useState(0);
@@ -272,7 +272,7 @@ export const AdminPage = () => {
         Object.keys(sessions).length && <div className="container admin">
             <header className="header"> 
                 <div className="row header-top">
-                    <div className="home" onClick={() => navigate('/sessions')}>
+                    <div className="home" onClick={() => navigate('/DiplomProject/')}>
                         <span>ИДЁМ</span><span className="letterV">B</span><span>КИНО</span>
                     </div>
                 </div>

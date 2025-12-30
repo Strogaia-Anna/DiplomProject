@@ -3,7 +3,7 @@ import "./Payment.css"
 
 export const Payment = () => {
     const body = document.getElementsByTagName('body')[0];
-    body.style.backgroundImage = 'url("/guest.jpg")';
+    body.style.backgroundImage = 'url("guest.jpg")';
 
     let navigate = useNavigate();
     const { state } = useLocation();
@@ -41,7 +41,7 @@ export const Payment = () => {
             console.log(data.result);
             if (data.success) {
                 navigate(
-                    "/ticket",
+                    "/DiplomProject/ticket",
                     {
                         state: {
                             film_name: state.film_name,
@@ -66,7 +66,7 @@ export const Payment = () => {
         <div className="payment container col-lg-12 col-md-12 col-sm-12">
             <header className="header"> 
                 <div className="row header-top">
-                    <div className="home" onClick={() => navigate('/sessions')}>
+                    <div className="home" onClick={() => navigate('/DiplomProject/')}>
                         <span>ИДЁМ</span><span className="letterV">B</span><span>КИНО</span>
                     </div>
                 </div>

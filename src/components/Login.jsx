@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 
 export const Login = () => {
     const body = document.getElementsByTagName('body')[0];
-    body.style.backgroundImage = 'url("/admin.jpg")';
+    body.style.backgroundImage = 'url("admin.jpg")';
     
     let navigate = useNavigate();
 
@@ -30,7 +30,7 @@ export const Login = () => {
             return response.json();
         }).then(data => {
             if (data.success) {
-                navigate("/admin")
+                navigate("/DiplomProject/admin")
             }
             console.log(data.result);
             setSessions(data.result);
@@ -42,7 +42,7 @@ export const Login = () => {
             <div className="d-flex flex-column min-vh-100 ">
                 <header className="header"> 
                     <div className="row header-top">
-                        <div className="home" onClick={() => navigate('/sessions')}>
+                        <div className="home" onClick={() => navigate('/DiplomProject/')}>
                             <span>ИДЁМ</span><span className="letterV">B</span><span>КИНО</span>
                         </div>
                     </div>

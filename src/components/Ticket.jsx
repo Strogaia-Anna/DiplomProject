@@ -4,7 +4,7 @@ import "./Ticket.css"
 
 export const Ticket = () => {
     const body = document.getElementsByTagName('body')[0];
-    body.style.backgroundImage = 'url("/guest.jpg")';
+    body.style.backgroundImage = 'url("guest.jpg")';
     
     const { state } = useLocation();
     let navigate = useNavigate();
@@ -26,7 +26,7 @@ export const Ticket = () => {
         <div className="ticket container col-lg-12 col-md-12 col-sm-12">
             <header className="header"> 
                 <div className="row header-top">
-                    <div className="home" onClick={() => navigate('/sessions')}>
+                    <div className="home" onClick={() => navigate('/DiplomProject/')}>
                         <span>ИДЁМ</span><span className="letterV">B</span><span>КИНО</span>
                     </div>
                 </div>

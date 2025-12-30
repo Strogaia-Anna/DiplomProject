@@ -23,27 +23,27 @@ export const router = createBrowserRouter([
                 element: <SessionsList/>,
             },
             {
-                path: "/login",
+                path: "/DiplomProject/login",
                 exact: true,
                 element: <Login/>,
             },
             {
-                path: "/admin",
+                path: "/DiplomProject/admin",
                 exact: true,
                 element: <AdminPage/>,
             },
             {
-                path: "/hall",
+                path: "/DiplomProject/hall",
                 exact: true,
                 element: <Hall/>,
             },
             {
-                path: "/payment",
+                path: "/DiplomProject/payment",
                 exact: true,
                 element: <Payment/>,
             },
             {
-                path: "/ticket",
+                path: "/DiplomProject/ticket",
                 exact: true,
                 element: <Ticket/>,
             },

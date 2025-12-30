@@ -6,7 +6,7 @@ import "./SessionsList.css"
 
 export const SessionsList = () => {
     const body = document.getElementsByTagName('body')[0];
-    body.style.backgroundImage = 'url("/guest.jpg")';
+    body.style.backgroundImage = 'url("guest.jpg")';
 
     let [sessions, setSessions] = useState([]);
     let navigate = useNavigate();
@@ -34,10 +34,10 @@ export const SessionsList = () => {
         <div className="container guest">
             <header className="header"> 
                 <div className="row header-top">
-                    <div className="home" onClick={() => navigate('/sessions')}>
+                    <div className="home" onClick={() => navigate('/DiplomProject/')}>
                         <span>ИДЁМ</span><span className="letterV">B</span><span>КИНО</span>
                     </div>
-                    <button className="home confirm-btn" onClick={() => navigate("/login")}>ВОЙТИ</button>
+                    <button className="home confirm-btn" onClick={() => navigate("/DiplomProject/login")}>ВОЙТИ</button>
                 </div>
             </header>
             <div className="navigation">

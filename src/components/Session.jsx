@@ -28,7 +28,7 @@ export const Session = (props) => {
         }
 
         navigate(
-            "/hall",
+            "/DiplomProject/hall",
             {
                 state: {
                     film: props.film,
