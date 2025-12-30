@@ -13,7 +13,7 @@ import {Ticket} from "./components/Ticket";
 
 export const router = createBrowserRouter([
     {
-        path: "/",
+        path: "/DiplomProject/",
         exact: true,
         element: <Main/>,
         children: [
