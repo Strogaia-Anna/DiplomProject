@@ -1,15 +1,66 @@
 .film {
-    border: 2px solid rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.3);
     display: inline-block;
-    height: 70px;
+    cursor: grab;
+    font-size: 14px;
+    line-height: 16px;
+    width: 260px;
+    height: 52px;
+    box-sizing: border-box;
+    margin-right: 20px;
+    margin-bottom: 20px;
 
     .cross {
+        position: absolute;
         float: right;
-        margin-top: 43px;
-        margin-right: 2px;
+        margin-top: 28px;
+        margin-left: -17px;
+
+        img {
+            margin-top: 2px;
+        }
+    }
+
+    span {
+        width: 205px;
     }
 }
 
 .film span {
     display: inline-block;
+}
+
+.poster {
+    width: 40px;
+    height: 52px;
+    margin-top: -1px;
+    margin-left: -1px;
+    margin-right: 10px;
+    float: left;
+}
+
+.film_name {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: 40px;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 600;
+}
+
+.film_duration {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    margin-top: 3px;
+}
+
+@media (max-width: 576px) {
+    .film {
+        .cross {
+            margin-left: -17px;
+        }
+    }
 }

@@ -23,18 +23,27 @@ a:hover {
 }
 
 body {
-  background-image: url("guest.jpg");
-  background-size: 100% auto;
+  background-repeat: no-repeat;
   margin: 0;
   display: block;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
   font-family: 'Roboto';
+  background-size: auto auto;
+  background-position-X: 50%;
+}
+
+.back-shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .root {
   width: 100%;
+  position: relative;
 }
 
 h1 {
@@ -107,7 +116,10 @@ button:focus-visible {
 }
 
 .title img {
+  position: absolute;
   float: right;
+  right: 35px;
+  top: 33px;
   width: 30px;
 }
 
@@ -123,7 +135,7 @@ button:focus-visible {
 }
 
 .buttons-container {
-  padding: 16px 45px;
+  padding: 16px 0;
   justify-content: space-between;
   display: flex;
 }
@@ -207,4 +219,21 @@ button:focus-visible {
 
 .chevron-left:before {
 	transform: rotate(-135deg);
+}
+
+@media (max-width: 576px){
+  .buttons-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .modal-form {
+    .cancel-btn, .confirm-btn {
+      min-width: 200px;
+    }
+
+    .buttons-container .btn {
+      margin-left: 0px;
+    }
+  }
 }

@@ -15,6 +15,10 @@ import "./AdminPage.css"
 export const AdminPage = () => {
     const body = document.getElementsByTagName('body')[0];
     body.style.backgroundImage = 'url("admin.jpg")';
+    body.style.backgroundSize = "auto 100%"
+    const bacShadow = document.getElementsByClassName('back-shadow')[0];
+    bacShadow.style.display = 'block';
+
     let [sessions, setSessions] = useState({});
     let [index, setIndex] = useState(0);
     let [indexForHalls, setIndexForHalls] = useState(0);
@@ -269,7 +273,7 @@ export const AdminPage = () => {
     }
 
     return (
-        Object.keys(sessions).length && <div className="container admin">
+        Object.keys(sessions).length && <div className="admin">
             <header className="header"> 
                 <div className="row header-top">
                     <div className="home" onClick={() => navigate('/DiplomProject/')}>
@@ -280,7 +284,7 @@ export const AdminPage = () => {
                     АДМИНИСТРАТОРРРСКАЯ
                 </span>
             </header>
-            <main className="main-container">
+            <main>
                 <Header text="УПРАВЛЕНИЕ ЗАЛАМИ" start={false} end={true}>
                     <span>
                         Доступные залы:
@@ -338,12 +342,18 @@ export const AdminPage = () => {
                         </div>
                         <div className="legend">
                             <div className="types">
-                                <div className="chair chair-standart"></div>
-                                <span> — обычные кресла</span>
-                                <div className="chair chair-vip"></div>
-                                <span> — VIP кресла</span>
-                                <div className="chair chair-disabled"></div>
-                                <span> — заблокированные (нет кресел)</span>
+                                <div className="type">
+                                    <div className="chair chair-standart"></div>
+                                    — обычные кресла
+                                </div>
+                                <div className="type">
+                                    <div className="chair chair-vip"></div>
+                                    — VIP кресла
+                                </div>
+                                <div className="type">
+                                    <div className="chair chair-disabled"></div>
+                                    — заблокированные (нет кресла)
+                                </div>
                             </div>
                             
                             <span>
@@ -356,7 +366,7 @@ export const AdminPage = () => {
                             </span>
                             <div className="screen-container">
                                 {Array.from({length: sessions.halls[indexForHalls].hall_rows}, (row_item, row_index) => {
-                                    return <div key={row_index} className="row">
+                                    return <div key={row_index} className="chairs-row">
                                         {Array.from({length: sessions.halls[indexForHalls].hall_places}, (place_item, place_index) => {
                                             return <div key={place_index} className={"chair" + ` chair-${getChairType(row_index, place_index)}`} onClick={() => onClick(row_index, place_index)}>    </div>
                                         })}
@@ -450,7 +460,7 @@ export const AdminPage = () => {
                             ))}
                         </div>
                     </div>
-                    <Modal className="col-lg-12"
+                    <Modal
                         isOpen={deleteSeanceIsOpen}
                         onRequestClose={() => closeModal(setDeleteSeanceIsOpen)}
                         style={customStyles}

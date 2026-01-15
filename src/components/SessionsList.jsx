@@ -7,6 +7,10 @@ import "./SessionsList.css"
 export const SessionsList = () => {
     const body = document.getElementsByTagName('body')[0];
     body.style.backgroundImage = 'url("guest.jpg")';
+    body.style.backgroundSize = "cover"
+
+    const bacShadow = document.getElementsByClassName('back-shadow')[0];
+    bacShadow.style.display = 'none';
 
     let [sessions, setSessions] = useState([]);
     let navigate = useNavigate();
@@ -31,7 +35,7 @@ export const SessionsList = () => {
 
         
     return (
-        <div className="container guest">
+        <div className="guest">
             <header className="header"> 
                 <div className="row header-top">
                     <div className="home" onClick={() => navigate('/DiplomProject/')}>

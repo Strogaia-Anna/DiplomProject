@@ -29,26 +29,23 @@ export const HallSeances = (props) => {
 
         const result = [];
         props.seances.filter(filterFunc).sort(sortFunc).forEach((seance, ind, arr) => {
-            if(seance.seance_hallid === hall_id) {
-                const film = props.films.filter((f) => (f.id === seance.seance_filmid))[0];
+            const film = props.films.filter((f) => (f.id === seance.seance_filmid))[0];
 
-                const calcOffsetMinutes = (time) => {
-                    const parts = time.split(':');
-                    const hours = parseInt(parts[0]);
-                    const minutes = parseInt(parts[1]);
-                    return hours * 60 + minutes - (ind ? 2 * 60 : 0);
-                }
-                
-                // const start_pos = ind ? calcOffsetMinutes(arr[ind - 1].seance_time) + 2 * 60 : 0;
-                result.push({
-                    id: seance.id,
-                    film_name: film.film_name,
-                    seance_time: seance.seance_time,
-                    color: film.color,
-                    poster: film.film_poster,
-                    offset: calcOffsetMinutes(seance.seance_time) * (100 / (24 * 60)),
-                })
+            const calcOffsetMinutes = (time) => {
+                const parts = time.split(':');
+                const hours = parseInt(parts[0]);
+                const minutes = parseInt(parts[1]);
+                return hours * 60 + minutes - (ind ? ind * 2 * 60 : 0);
             }
+            
+            result.push({
+                id: seance.id,
+                film_name: film.film_name,
+                seance_time: seance.seance_time,
+                color: film.color,
+                poster: film.film_poster,
+                offset: calcOffsetMinutes(seance.seance_time) * (100 / (24 * 60)),
+            })
         });
 
         return result;
@@ -64,7 +61,6 @@ export const HallSeances = (props) => {
             </div>
             <div className="time-line row">
                 {getSeanses(props.hall.id).map((item, index) => (
-                    // <Seance key={index} data={item} deleteSeance={props.deleteSeance}/>
                     <div key={index} className="seance-time col-1" style={{left: `${item.offset}%`}}>
                         <div className="time-mark"></div>
                         <span>{item.seance_time}</span>

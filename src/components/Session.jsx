@@ -21,8 +21,6 @@ export const Session = (props) => {
     }
 
     const onClick = (hall, seance) => {
-        
-
         if(isDisabled(seance)) {
             return;
         }
@@ -40,18 +38,28 @@ export const Session = (props) => {
         )
     };
 
+    const sortFunc = (a, b) => {
+        if (a.seance_time > b.seance_time) {
+            return 1;
+        }
+        if (a.seance_time < b.seance_time) {
+            return -1;
+        }
+        return 0;
+    }
+
     const getSeances = (hall_id) => {
-        return props.all_data.seances.filter(seance => seance.seance_filmid === props.film.id && seance.seance_hallid === hall_id);  
+        const filterFunc = (seance) => seance.seance_filmid === props.film.id && seance.seance_hallid === hall_id;
+        return props.all_data.seances.filter(filterFunc).sort(sortFunc);  
     };
     
     return (
         <div className="session">
             <div className="row">
-                <div className="col-1">
+                <div className="film-poster">
                     <img src={props.film.film_poster} className="img"></img>
-                    
                 </div>
-                <div className="col-11 filx-text">
+                    <div className="film-text">
                     <div className="black-item"></div><span className="film-name">{props.film.film_name}</span>
                     <span className="text">{props.film.film_description}</span>
                     <span className="text">{props.film.film_duration} минут{getEnd(props.film.film_duration)} {props.film.film_origin}</span>

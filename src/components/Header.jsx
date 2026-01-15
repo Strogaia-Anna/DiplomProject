@@ -8,9 +8,9 @@ export const Header = (props) => {
         <section>
             <div className="section-header">
                 <div className="sign">
-                    {props.start && <div className="line"></div>}
+                    {props.start && <div className="line d-none d-sm-block"></div>}
                     <div className="circle"></div>
-                    {props.end && <div className="line"></div>}
+                    {props.end && <div className="line d-none d-sm-block"></div>}
                 </div>
                 <div className="section-header-content">
                     <span className="header-text">{props.text}</span>

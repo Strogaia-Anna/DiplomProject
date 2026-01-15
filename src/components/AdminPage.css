@@ -17,11 +17,6 @@
     background-color: #B0D6D8
 }
 
-.poster {
-    width: 50px;
-    height: 50px;
-}
-
 .hall-drop {
     height: 50px;
     border: 1px solid black;
@@ -81,6 +76,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: auto;
+
+    .chairs-row {
+        display: flex;
+        flex-wrap: nowrap;
+    }
 }
 
 .cross {
@@ -91,6 +92,7 @@
     border-radius: 3px;
     display: inline-block;
     margin-left: 5px;
+    cursor: pointer;
 }
 
 .cross img {
@@ -114,22 +116,36 @@
 
 .hall-back {
     background: white;
-    display: inline;
+    display: inline-block;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
     padding: 10px 15px;
     margin-top: 2px;
     border-radius: 3px;
     box-sizing: border-box;
     margin-left: 1px;
+    cursor: pointer;
 }
 
 .hall-back:first-child {
     margin-left: 0;
 }
 
+.type {
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    .chair {
+        margin: 0;
+        margin-right: 5px;
+        display: inline-block;
+    }
+}
+
 .halls {
     margin-top: 10px;
-    height: 43px;
 }
 
 .big {
@@ -157,6 +173,7 @@
 .legend {
     .types {
         display: flex;
+        flex-wrap: wrap;
         justify-content: flex-start;
         align-items: center;
         padding-top: 5px;
@@ -196,8 +213,13 @@
 }
 
 .available-movies {
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    gap: 1%;
+    display: flex;
+    flex-wrap: wrap;
     margin-top: 10px
+}
+
+@media (max-width: 390px) {
+    .screen-container {
+        padding-left: 60px;
+    }
 }

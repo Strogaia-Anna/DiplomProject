@@ -8,12 +8,15 @@
 
 .home {
     width: auto;
+    cursor: pointer;
 }
 
 .home.confirm-btn {
     margin: 0 12px 0 0;
+    padding: 11px;
 }
 
 .navigation .row {
     margin: 0;
 }
+

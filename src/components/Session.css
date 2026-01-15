@@ -22,10 +22,17 @@
     font-size: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
+    cursor: pointer;
 }
 
-.filx-text {
+.film-text {
     position: relative;
+    width: calc(100% - 125px);
+}
+
+.film-poster {
+    position: relative;
+    width: 125px;
 }
 
 .black-item {
@@ -45,4 +52,5 @@
 .seance-disabled {
     color: gray;
     background-color: lightgray;
+    cursor: not-allowed ;
 }

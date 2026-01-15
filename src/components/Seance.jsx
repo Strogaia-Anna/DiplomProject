@@ -22,7 +22,7 @@ export const Seance = (props) => {
         <>
             <DragPreviewImage connect={preview} src={props.data.poster} />
             <div ref={drag} className="col-1 seance" style={{background: props.data.color, left: `${props.data.offset}%`}}>
-                {props.data.film_name} 
+                <span>{props.data.film_name}</span>
             </div>
         </>
 )

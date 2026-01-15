@@ -54,8 +54,8 @@ export const Film = (props) => {
             <div ref={drag} role="Handle" className="film" style={{background: props.item.color}}>
                 <img src={props.item.film_poster} className="poster" />
                 <span>
-                    <div><strong>{props.item.film_name}</strong></div>
-                    <div>{props.item.film_duration} минут{getEnd(props.item.film_duration)}</div>
+                    <div className="film_name">{props.item.film_name}</div>
+                    <div className="film_duration">{props.item.film_duration} минут{getEnd(props.item.film_duration)}</div>
                 </span>
                 
                 <div className="cross" onClick={() => deleteFilm(props.item.id)}> 

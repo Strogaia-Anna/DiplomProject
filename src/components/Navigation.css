@@ -11,7 +11,10 @@
 
     /* .chev-right:before { content:"\2039"; } */
     .chev-right:after  { content:"\203A"; }
+    cursor: pointer;
+    text-wrap: nowrap;
 }
+
 
 .car-item-selected {
     margin-top: -2px;
@@ -21,6 +24,8 @@
     border: 1px solid transparent;
     box-sizing: border-box;
     font-weight: bold;
+    cursor: pointer;
+    text-wrap: nowrap;
 }
 
 .red-day {

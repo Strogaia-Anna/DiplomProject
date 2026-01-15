@@ -6,4 +6,20 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    cursor: grab;
+
+    span {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        
+    }
+    
+}
+
+@media (max-width: 576px) {
+    .seance {
+        padding: 0;
+    }
 }
