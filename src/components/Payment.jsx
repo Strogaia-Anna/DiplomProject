@@ -4,6 +4,10 @@ import "./Payment.css"
 export const Payment = () => {
     const body = document.getElementsByTagName('body')[0];
     body.style.backgroundImage = 'url("guest.jpg")';
+    body.style.backgroundSize = "cover"
+
+    const bacShadow = document.getElementsByClassName('back-shadow')[0];
+    bacShadow.style.display = 'none';
 
     let navigate = useNavigate();
     const { state } = useLocation();
@@ -63,7 +67,7 @@ export const Payment = () => {
     };
 
     return (
-        <div className="payment container col-lg-12 col-md-12 col-sm-12">
+        <div className="payment col-lg-12 col-md-12 col-sm-12">
             <header className="header"> 
                 <div className="row header-top">
                     <div className="home" onClick={() => navigate('/DiplomProject/')}>

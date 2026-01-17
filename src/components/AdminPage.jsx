@@ -163,7 +163,7 @@ export const AdminPage = () => {
             return;
         }
         
-        if (value > sessions.halls[indexForHalls].hall_places) {
+        if (value > sessions.halls[indexForHalls].hall_rows) {
             sessions.halls[indexForHalls].hall_config.push(Array.from({length: sessions.halls[indexForHalls].hall_places}, () => 'standart'));
         } else {
              sessions.halls[indexForHalls].hall_config.pop();

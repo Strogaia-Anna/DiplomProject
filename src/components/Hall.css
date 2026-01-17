@@ -14,6 +14,7 @@
 }
 
 .center {
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -26,6 +27,33 @@
     flex-direction: column;
     align-items: center;
     margin-top: 15px;
+
+    .chairs {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-x: auto;
+
+        .chairs-row {
+            display: flex;
+            flex-wrap: nowrap;
+            margin: 0 auto;
+        }
+    }
+
+    @media (max-width: 390px) {
+        .chairs {
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: nowrap;
+    }
 }
 
 .choice-of-location {

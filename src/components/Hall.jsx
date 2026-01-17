@@ -7,6 +7,10 @@ import screen from '../assets/screen.png';
 export const Hall = () => {
     const body = document.getElementsByTagName('body')[0];
     body.style.backgroundImage = 'url("guest.jpg")';
+    body.style.backgroundSize = "cover";
+
+    const bacShadow = document.getElementsByClassName('back-shadow')[0];
+    bacShadow.style.display = 'none';
     
     const { state } = useLocation();
     let [hall, setHall] = useState(structuredClone(state.hall));
@@ -83,7 +87,7 @@ export const Hall = () => {
     }
 
     return (
-        state && <div className="booking container col-lg-12 col-md-12 col-sm-12">
+        state && <div className="booking col-lg-12 col-md-12 col-sm-12">
             <header className="header"> 
                 <div className="row header-top">
                     <div className="home" onClick={() => navigate('/DiplomProject/')}>
@@ -104,15 +108,6 @@ export const Hall = () => {
                             {hall.hall_name}
                         </div>
                     </div>
-                    {/* <div className="col-lg-12 col-md-11 col-sm-8 film-name">
-                        {state.film.film_name}
-                    </div>
-                    <div className="col-lg-12 col-md-11 col-sm-8">
-                        Начало сеанса: {state.seance.seance_time}
-                    </div>
-                    <div className="col-lg-12 col-md-11 col-sm-8 hall-name">
-                        {hall.hall_name}
-                    </div> */}
                     <div className="tap d-none d-lg-none d-md-flex d-sm-flex d-xs-flex col-md-2 col-sm-4 col-xs-6">
                         <img src="tap.png" />
                         <div className="tap-text">
@@ -131,7 +126,7 @@ export const Hall = () => {
                         <div className="hall-and-legend">
                             <div className="chairs">
                                 {hall.hall_config && hall.hall_config.map((row, i) => (
-                                    <div key={i} className="row">
+                                    <div key={i} className="chairs-row">
                                         {row.map((item, j) => (
                                             <div key={j} className={"chair" + ` chair-${item}`} onClick={() => choosePlace(i, j)}></div>
                                         ))}

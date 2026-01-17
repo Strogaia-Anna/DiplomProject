@@ -43,18 +43,6 @@
     width: 100%;
 }
 
-/* .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    background-color: rgba(99, 83, 108, 1);
-    color: white;
-    padding: 16px 32px;
-    font-size: 20px;
-    line-height: 25px;
-    font-weight: 700;
-} */
-
 .screen {
     border: 1px solid black;
     margin-top: 5px;
@@ -81,6 +69,7 @@
     .chairs-row {
         display: flex;
         flex-wrap: nowrap;
+        margin: 0 auto;
     }
 }
 
@@ -220,6 +209,6 @@
 
 @media (max-width: 390px) {
     .screen-container {
-        padding-left: 60px;
+        /* align-items: flex-start; */
     }
 }

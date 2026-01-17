@@ -5,6 +5,10 @@ import "./Ticket.css"
 export const Ticket = () => {
     const body = document.getElementsByTagName('body')[0];
     body.style.backgroundImage = 'url("guest.jpg")';
+    body.style.backgroundSize = "cover"
+
+    const bacShadow = document.getElementsByClassName('back-shadow')[0];
+    bacShadow.style.display = 'none';
     
     const { state } = useLocation();
     let navigate = useNavigate();
@@ -23,7 +27,7 @@ export const Ticket = () => {
     }
 
     return (
-        <div className="ticket container col-lg-12 col-md-12 col-sm-12">
+        <div className="ticket col-lg-12 col-md-12 col-sm-12">
             <header className="header"> 
                 <div className="row header-top">
                     <div className="home" onClick={() => navigate('/DiplomProject/')}>
