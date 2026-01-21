@@ -38,9 +38,11 @@ export const AddSeance = (props) => {
             if (data.success) {
                console.log(data);
                props.onRequestClose(data.result.seances, 'seances')
+            } else {
+                alert(data.error)
             }
             console.log(data);
-        }).catch(error => console.log(error));
+        }).catch(error => alert(error));
     }
 
     const onChangeHall = (hall) => {
@@ -89,7 +91,7 @@ export const AddSeance = (props) => {
                     </div>
                 </div>
                 
-                <div className="buttons-container col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+                <div className="buttons-container col-sm-10 offset-sm-1 col-6 offset-3">
                     <button className="btn confirm-btn" type="submit">
                         ДОБАВИТЬ СЕАНС
                     </button>

@@ -4,7 +4,6 @@ import "./Payment.css"
 export const Payment = () => {
     const body = document.getElementsByTagName('body')[0];
     body.style.backgroundImage = 'url("guest.jpg")';
-    body.style.backgroundSize = "cover"
 
     const bacShadow = document.getElementsByClassName('back-shadow')[0];
     bacShadow.style.display = 'none';
@@ -61,9 +60,7 @@ export const Payment = () => {
             }
             
             
-        }).catch(error => {
-            console.log(error)
-        });
+        }).catch(error => alert(error));
     };
 
     return (

@@ -57,7 +57,7 @@
     margin-top: 3px;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768) {
     .film {
         .cross {
             margin-left: -17px;

@@ -33,6 +33,7 @@
 .film-poster {
     position: relative;
     width: 125px;
+    padding-right: 0    ;
 }
 
 .black-item {
@@ -40,9 +41,7 @@
     width: 6px;
     height: 15px;
     position: absolute;
-    left: 0px;
-    top: 3px;
-
+    left: 1px;
 }
 
 .seances-container {

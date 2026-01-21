@@ -15,7 +15,6 @@ import "./AdminPage.css"
 export const AdminPage = () => {
     const body = document.getElementsByTagName('body')[0];
     body.style.backgroundImage = 'url("admin.jpg")';
-    body.style.backgroundSize = "auto 100%"
     const bacShadow = document.getElementsByClassName('back-shadow')[0];
     bacShadow.style.display = 'block';
 
@@ -44,22 +43,16 @@ export const AdminPage = () => {
                 }
                 setSessions(data.result);
             })
-            .catch(error => console.log(error));
+            .catch(error => alert(error));
     }, []);
 
     const customStyles = {
         content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
+            top: '120px',
             width: '100%',
             position: 'relative',
-            transform: 'translate(-50%, -50%)',
             outline: null,
-            border: null,
-            background: null
+            border: null
         },
     };
     Modal.setAppElement('#root');
@@ -116,8 +109,10 @@ export const AdminPage = () => {
                 sessions.halls = data.result.halls;
                 sessions.seances = data.result.seances;
                 setSessions({...sessions});
+            } else {
+                alert(data.error)
             }
-        }).catch(error => console.log(error));
+        }).catch(error => alert(error));
             
     }
     const onSubmitHall = (e) => {
@@ -139,9 +134,11 @@ export const AdminPage = () => {
             if (data.success) {
                 sessions.halls[indexForHalls] = data.result;
                 setSessions({...sessions});
+            } else {
+                alert(data.error)
             }
             console.log(data);
-        }).catch(error => console.log(error));
+        }).catch(error => alert(error));
     }
 
     const getChairType = (row_index, place_index) => {
@@ -217,7 +214,7 @@ export const AdminPage = () => {
             } else {
                 alert(data.error)
             }
-        }).catch(error => console.log(error));
+        }).catch(error => alert(error));
     }
 
     const onChangePrice = (e, itemType) => {
@@ -245,9 +242,11 @@ export const AdminPage = () => {
             if (data.success) {
                sessions.halls = data.result.halls;
                 setSessions({...sessions})
+            } else {
+                alert(data.error)
             }
             console.log(data);
-        }).catch(error => console.log(error));
+        }).catch(error => alert(error));
     }
 
     const onDeleteCb = (data) => {
@@ -292,20 +291,22 @@ export const AdminPage = () => {
                     <div>
                         {sessions.halls.map((item) => (
                             <div key={item.id} >
-                                <strong>- {item.hall_name}</strong>
+                                <strong>— {item.hall_name}</strong>
                                 <div className="cross" onClick={() => deleteHall(item.id)}>
                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABjUlEQVR4nO3Tvy8EURDA8RcVBQUNPQ0FDT2NK/zYeZdtbcLde5fdmeMKFcmhcX8CDQ1/Ag0N/wIFDT0NxRXX3ImjFsnNzIa8b7L1zidvxphQKMSWB9rzljo/f9gwf3d40kP4Xw+j85kAsAHQUQWEQqGvfIRzeR1uGaqzptccbI3lBUjjdLRnQL1e7/OALXUAYOvz3z0Duq9g8VkfQE8sw3cBQLc5vMANG8ADnWsDnMUzPoDFRg4rdMgGcEBZDiuU8gEsLWsDKlG2xAYorW7O5PAC02yALMpGtAEbcW3YcOYtNRUBTdbhvwGPWgAH+MAPALzW23+6Ygc4oFPFFTphB3hLB4ortM8PiLCsB6ASO8ABFbQAFZstsgNKxXRK7QZimmQHrK9sD2oBqEBDRiIH+C4OAHozUnmge/EDtngnB7B0KQ4AvJADAB7LvwAdiQGcxV2FI96RAxSrifwR45oYoAK4oLBC82IAb6sT0oA0TsfFAEmS9HtLbUFAuxbXBoxk3uKr4P6/iA4fCv3DPgAENFk47dUBVAAAAABJRU5ErkJggg==" alt="filled-trash" />
                                 </div>
                             </div>
                         ))}
                     </div>
-                    <button onClick={() => openModal(setAddHallIsOpen)} className="btn confirm-btn">
+                    <button onClick={() => openModal(setAddHallIsOpen)} className="add-hall-btn btn confirm-btn">
                         СОЗДАТЬ ЗАЛ
                     </button>
+                    
                     <Modal
                         isOpen={addHallIsOpen}
                         onRequestClose={() => closeModal(setAddHallIsOpen)}
                         style={customStyles}
+                        className="container-lg"
                     >
                         <AddHall onRequestClose={(data, key) => closeModal(setAddHallIsOpen, data, key)} /> 
                     </Modal>
@@ -321,6 +322,7 @@ export const AdminPage = () => {
                             ))}
                         </div>
                     </div>
+                    <br/>
                     <span>
                         Укажите количество рядов и максимальное количество кресел в ряду:
                     </span>
@@ -395,6 +397,7 @@ export const AdminPage = () => {
                     </div>
                     <form className="form" onSubmit={(e) => onSubmitPrice(e)}>
                         <div>
+                            <br/>
                             <span>
                                 Установите цены для типов кресел:
                             </span>
@@ -434,6 +437,7 @@ export const AdminPage = () => {
                         isOpen={addFilmIsOpen}
                         onRequestClose={() => closeModal(setAddFilmIsOpen)}
                         style={customStyles}
+                        className="container-lg"
                     >
                         <AddFilm onRequestClose={(data, key) => closeModal(setAddFilmIsOpen, data, key)} /> 
                     </Modal>
@@ -446,6 +450,7 @@ export const AdminPage = () => {
                         isOpen={addSeanceIsOpen}
                         onRequestClose={() => closeModal(setAddSeanceIsOpen)}
                         style={customStyles}
+                        className="container-lg"
                     >
                         <AddSeance onRequestClose={(data, key) => closeModal(setAddSeanceIsOpen, data, key)} data={addSeanceData} films={sessions.films} halls={sessions.halls} /> 
                     </Modal>
@@ -464,6 +469,7 @@ export const AdminPage = () => {
                         isOpen={deleteSeanceIsOpen}
                         onRequestClose={() => closeModal(setDeleteSeanceIsOpen)}
                         style={customStyles}
+                        className="container-lg"
                     >
                         <DeleteSeance data={deleteSeanceData} onDeleteSeanceCb={(data) => onDeleteSeanceCb(data)} onRequestClose={(data, key) => closeModal(setDeleteSeanceIsOpen, data, key)} /> 
                     </Modal>

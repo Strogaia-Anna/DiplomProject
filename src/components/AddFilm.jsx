@@ -25,9 +25,11 @@ export const AddFilm = (props) => {
             if (data.success) {
                console.log(data);
                props.onRequestClose(data.result.films, 'films')
+            } else {
+                alert(data.error)
             }
             console.log(data);
-        }).catch(error => console.log(error));
+        }).catch(error => alert(error));
     }
 
     return (
@@ -85,7 +87,7 @@ export const AddFilm = (props) => {
                         required
                     />
                 </div>
-                <div className="buttons-container col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+                <div className="buttons-container col-sm-10 offset-sm-1 col-6 offset-3">
                     <button className="btn confirm-btn" type="submit">
                         ДОБАВИТЬ ФИЛЬМ
                     </button>

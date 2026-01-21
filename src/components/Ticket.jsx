@@ -5,7 +5,6 @@ import "./Ticket.css"
 export const Ticket = () => {
     const body = document.getElementsByTagName('body')[0];
     body.style.backgroundImage = 'url("guest.jpg")';
-    body.style.backgroundSize = "cover"
 
     const bacShadow = document.getElementsByClassName('back-shadow')[0];
     bacShadow.style.display = 'none';

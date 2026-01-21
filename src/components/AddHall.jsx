@@ -16,9 +16,11 @@ export const AddHall = (props) => {
         }).then(data => {
             if (data.success) {
                props.onRequestClose(data.result.halls, 'halls')
+            } else {
+                alert(data.error)
             }
             console.log(data);
-        }).catch(error => console.log(error));
+        }).catch(error => alert(error));
     }
 
     return (
@@ -38,7 +40,7 @@ export const AddHall = (props) => {
                         name="hallName"
                     />
                 </div>
-                <div className="buttons-container col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+                <div className="buttons-container col-sm-10 offset-sm-1 col-6 offset-3">
                     <button className="btn confirm-btn" type="submit">
                         ДОБАВИТЬ ЗАЛ
                     </button>

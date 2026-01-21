@@ -25,15 +25,6 @@ export const Film = (props) => {
             isDragging: monitor.isDragging()
         })
     }))
-
-    // const [, drop] = useDrop({
-    //     accept: 'FILM',
-    //     hover(item) {
-    //         console.log(item)
-    //     }
-    // });
-
-    // drag(ref);
     
     const deleteFilm = (filmId) => {
         fetch( `https://shfe-diplom.neto-server.ru/film/${filmId}`, {
@@ -43,8 +34,10 @@ export const Film = (props) => {
         }).then(data => {
             if (data.success) {
                 props.onDeleteCb(data.result)
+            } else {
+                alert(data.error)
             }
-        }).catch(error => console.log(error));
+        }).catch(error => alert(error));
             
     }
 

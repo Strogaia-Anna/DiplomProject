@@ -7,7 +7,6 @@ import "./SessionsList.css"
 export const SessionsList = () => {
     const body = document.getElementsByTagName('body')[0];
     body.style.backgroundImage = 'url("guest.jpg")';
-    body.style.backgroundSize = "cover"
 
     const bacShadow = document.getElementsByClassName('back-shadow')[0];
     bacShadow.style.display = 'none';
@@ -25,7 +24,7 @@ export const SessionsList = () => {
                 console.log(data.result);
                 setSessions(data.result);
             })
-            .catch(error => console.log(error));
+            .catch(error => alert(error));
     }, []);
 
     const currentDate = (date) => {
@@ -41,7 +40,7 @@ export const SessionsList = () => {
                     <div className="home" onClick={() => navigate('/DiplomProject/')}>
                         <span>ИДЁМ</span><span className="letterV">B</span><span>КИНО</span>
                     </div>
-                    <button className="home confirm-btn" onClick={() => navigate("/DiplomProject/login")}>ВОЙТИ</button>
+                    <button className="home-btn confirm-btn" onClick={() => navigate("/DiplomProject/login")}>ВОЙТИ</button>
                 </div>
             </header>
             <div className="navigation">

@@ -23,6 +23,7 @@ a:hover {
 }
 
 body {
+  position: relative;
   background-repeat: no-repeat;
   margin: 0;
   display: block;
@@ -30,8 +31,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   font-family: 'Roboto';
-  background-size: auto auto;
-  background-position-X: 50%;
+  background-size: cover;
+  background-position: center;
 }
 
 .back-shadow {
@@ -42,7 +43,7 @@ body {
 }
 
 .root {
-  width: 100%;
+  max-width: 990px;
   position: relative;
 }
 
@@ -84,7 +85,7 @@ button:focus-visible {
 }
 
 .header {
-    padding: 15px;
+    padding: 14px;
 }
 
 .header-top span {
@@ -93,6 +94,7 @@ button:focus-visible {
     font-weight: 900;
     color: white;
     font-size: 34px;
+    line-height: 39px;
 }
 
 .header-bottom {
@@ -119,7 +121,7 @@ button:focus-visible {
   position: absolute;
   float: right;
   right: 35px;
-  top: 33px;
+  top: 13px;
   width: 30px;
 }
 
@@ -136,13 +138,15 @@ button:focus-visible {
 
 .buttons-container {
   padding: 16px 0;
-  justify-content: space-between;
+  justify-content: center;
   display: flex;
 }
 
 .confirm-btn, .cancel-btn {
   padding: 11px 22px;
+  border-radius: 3px;
   font-size: 14px;
+  line-height: 16px;
   text-align: center;
   margin-top: 15px;
   font-weight: 500;
@@ -221,13 +225,19 @@ button:focus-visible {
 	transform: rotate(-135deg);
 }
 
-@media (max-width: 576px){
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+} 
+
+@media (max-width: 768px){
   .buttons-container {
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .modal-form {
+    padding: 7px !important;
+
     .cancel-btn, .confirm-btn {
       min-width: 200px;
     }
@@ -236,4 +246,8 @@ button:focus-visible {
       margin-left: 0px;
     }
   }
+}
+
+@media (max-width: 576px) {
+    
 }

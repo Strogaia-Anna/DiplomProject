@@ -10,8 +10,10 @@ export const DeleteSeance = (props) => {
         }).then(data => {
             if (data.success) {
                 props.onDeleteSeanceCb(data.result)
+            } else {
+                alert(data.error)
             }
-        }).catch(error => console.log(error));
+        }).catch(error => alert(error));
     }
 
     return (
@@ -24,7 +26,7 @@ export const DeleteSeance = (props) => {
                 <div className="col-lg-10 offset-lg-1 col-md-12 col-sm-12">
                     <span>Вы действительно хотите снять с сеанса фильм <strong>"{props.data.film_name}"</strong> ?</span>
                 </div>
-                <div className="buttons-container col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+                <div className="buttons-container col-sm-10 offset-sm-1 col-6 offset-3">
                     <button className="btn confirm-btn" type="submit">
                         УДАЛИТЬ
                     </button>

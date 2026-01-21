@@ -28,7 +28,7 @@
 }
 
 .session-grid {
-    width: calc(100% - 120px);
+    width: calc(100% - 75px);
     display: inline-block;
     margin-left: 20px;
 }
@@ -146,6 +146,8 @@
 .modal-form {
     padding-top: 30px;
     padding-bottom: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .params {
@@ -207,8 +209,27 @@
     margin-top: 10px
 }
 
-@media (max-width: 390px) {
-    .screen-container {
-        /* align-items: flex-start; */
+.ReactModal__Content {
+    max-width: 990px !important;
+}
+
+@media (max-width: 768px) {
+    .root {
+        padding: 0;
+    }
+
+    .ReactModal__Content {
+        padding: 0 !important;
+    }
+}
+
+.add-hall-btn {
+    display: flex;
+    justify-self: start;
+}
+
+@media (max-width: 576px) {
+    .add-hall-btn {
+        justify-self: center;
     }
 }

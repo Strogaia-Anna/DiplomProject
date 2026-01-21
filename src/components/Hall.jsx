@@ -7,7 +7,6 @@ import screen from '../assets/screen.png';
 export const Hall = () => {
     const body = document.getElementsByTagName('body')[0];
     body.style.backgroundImage = 'url("guest.jpg")';
-    body.style.backgroundSize = "cover";
 
     const bacShadow = document.getElementsByClassName('back-shadow')[0];
     bacShadow.style.display = 'none';
@@ -27,7 +26,7 @@ export const Hall = () => {
                 hall.hall_config = data.result
                 setHall({...hall});
             })
-            .catch(error => console.log(error));
+            .catch(error => alert(error));
     }, []);
 
     const onClickToPay = () => {

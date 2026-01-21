@@ -38,6 +38,15 @@ export const Session = (props) => {
         )
     };
 
+    const isVisible = () => {
+        for(let hall of props.all_data.halls) {
+            if (hall.hall_open && getSeances(hall.id).length) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     const sortFunc = (a, b) => {
         if (a.seance_time > b.seance_time) {
             return 1;
@@ -54,7 +63,7 @@ export const Session = (props) => {
     };
     
     return (
-        <div className="session">
+        <div className="session" style={{"display": isVisible() ? "block" : "none"}}>
             <div className="row">
                 <div className="film-poster">
                     <img src={props.film.film_poster} className="img"></img>
@@ -67,7 +76,7 @@ export const Session = (props) => {
             </div>
             <div>
                 {props.all_data.halls.map((item) => (
-                    <div key={item.id} className="row" hidden={!item.hall_open}>
+                    !!getSeances(item.id).length && <div key={item.id} className="row" hidden={!item.hall_open}>
                         <span className="hall-name">
                             {item.hall_name}
                         </span>

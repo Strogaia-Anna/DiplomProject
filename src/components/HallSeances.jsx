@@ -53,10 +53,10 @@ export const HallSeances = (props) => {
 
     return (
         <div key={props.hall.id}>
-            <span>{props.hall.hall_name}</span>
+            <span className="seances-hall-name">{props.hall.hall_name}</span>
             <div className="row hall-drop" role={'Dustbin'} ref={drop}>
-                {getSeanses(props.hall.id).map((item, index) => (
-                    <Seance key={index} data={item} deleteSeance={props.deleteSeance}/>
+                {getSeanses(props.hall.id).map((item) => (
+                    <Seance key={item.id} data={item} deleteSeance={props.deleteSeance}/>
                 ))}
             </div>
             <div className="time-line row">

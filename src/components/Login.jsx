@@ -33,10 +33,11 @@ export const Login = () => {
         }).then(data => {
             if (data.success) {
                 navigate("/DiplomProject/admin")
+            } else {
+                alert(data.error)
             }
             console.log(data.result);
-            setSessions(data.result);
-        }).catch(error => console.log(error));
+        }).catch(error => alert(error));
     }
     
     return (
@@ -53,12 +54,12 @@ export const Login = () => {
                     </span>
                 </header>
 
-                <main className="col-lg-6 col-md-8 col-sm-12 section offset-lg-3 offset-md-2">
+                <main className="section">
                     <div className="auth-title">
                         АВТОРИЗАЦИЯ
                     </div>
                     <form className="auth_form form modal-form" onSubmit={(e) => onSubmit(e)}>
-                        <div className="col-lg-6 col-md-8 col-sm-8 col-12 email offset-lg-3 offset-md-2 offset-sm-2">
+                        <div className="col-12">
                             <label htmlFor="floatingTract" className="form-label">
                                 E-mail
                             </label>
@@ -70,7 +71,7 @@ export const Login = () => {
                                 name="login"
                             />
                         </div>
-                        <div className="col-lg-6 col-md-8 col-sm-8 col-12 password offset-lg-3 offset-md-2 offset-sm-2">
+                        <div className="col-12">
                             <label htmlFor="floatingPassword" className="form-label">
                                 Пароль
                             </label>
